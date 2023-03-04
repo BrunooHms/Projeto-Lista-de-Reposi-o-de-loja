@@ -8,10 +8,6 @@ function enviar(){
 
     document.getElementById("listaFeita").innerHTML = list;
     
-
-  
-   
-
 }
 
 function adicionar(){
@@ -24,6 +20,8 @@ function retirar(){
     let quantidade = document.getElementById("contagem");
     quantidade.value--;
 }
+
+
 
 
 
