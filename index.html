@@ -1,40 +1,277 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="script.js"></script>
     <title>Lista de Reposição</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/icone/icons8-caneta-48.png">
+    <script src=""></script>
 </head>
- <body>
-    <div class="conteudo">
-        <div class="conteudo2">
-            <span class="titulo">
-                <font style="vertical-align: inherit;"> <font style="vertical-align: inherit;"> Crie sua Lista</font>
-            </font>
-            </span>
-    <input list="itensDaLista" id="itens" name="itens" type="text" onfocus="this.value =''";>
-    <datalist id="itensDaLista">
-        <option value="Agua sanitaria"> 
-        <option value="Cloro">
-        <option value="Desifetante">
-        <option value="Detergente">
-    </datalist>
-   <input id="contagem"  type="number" > 
-   <button onclick="enviar()" id="enviar"  > Criar lista</button> <br>
-   <input onclick="adicionar()" type="button" value="+" id="mais"><input onclick="retirar()" type="button" value="-">
-        </div>
-            <div class="conteudo-lista">
-            <span class="titulo">
-            <font style="vertical-align: inherit;"> <font style="vertical-align: inherit;"> Itens da Lista</font>
-            </font>
-            </span>
-            <ul id="listaFeita" class="itenslista">
-            </ul>
+<body>
+    <header id="titulo"> <h1 class="display-4"><img src="img/logo-triangulo-topo.png">Crie sua lista para reposição<img src="img/logo-triangulo-topo.png"></h1></header>
+    <div id="setores" class="card">
+        <section class="list-group">
+            <h2 id="titulo-setores">SETORES</h2>
+            <p class="list-group-item"><input type="button" class="btn btn-outline-dark" value="LIMPEZA" id="botaoLimpeza" onclick="mostrarTabelaLimpeza()"></p>
+            <p class="list-group-item"><input type="button" class="btn btn-outline-dark" value="SABONETES" id="botaoSabonete" onclick="mostrarTabelaSabonete()"></p>
+            <p class="list-group-item"><input type="button" class="btn btn-outline-dark" value="SACO PLASTICOS" onclick="mostrarTabelaSacoPlastico()"></p>
+            <p class="list-group-item"><input type="button" class="btn btn-outline-dark" value="PRAFESTA" onclick="mostrarTabelaPrafesta()"></p>
+            <p class="list-group-item"><input type="button" class="btn btn-outline-dark" value="PLEION" onclick="mostrarTabelaPleion()"></p>
+            <p class="list-group-item"><input type="button" class="btn btn-outline-dark" value="VASSOURAS" onclick="mostrarTabelaVassouras()"></p>
+            <p class="list-group-item"><input type="button" class="btn btn-outline-dark" value="CAIXA" onclick="mostrarTabelaCaixa()"></p>
+            <p class="list-group-item"><input type="button" class="btn btn-outline-dark" value="POTES PLASTICOS" onclick="mostrarTabelaPotesPlasticos()"></p>
+            <p class="list-group-item"><input type="button" class="btn btn-outline-dark" value="GALVANOTEK" onclick="mostrarTabelaGalvanotek()"></p>   
+        </section>
+    </div>
+
+    <div id="itensSetor" class="jumbotron">
+
+        <h2 id="tituloItensSetor" class="display-4">Itens do setor de <span id="setorSelecionado">LIMPEZA</span></h2>
+
+            <div  id="tabelaLimpeza" class="barraRolagem">
+                <section style="display: inline-table;" > 
+                    <label for="item"><h3 class="textos-subtitulos">Lista de itens</h3></label>
+                    <select name="item" id="listaItensLimpeza" class="btn btn-danger" style="margin-left: 10px;">
+                        <option value="Agua Sanitaria 5L" class="itens-da-lista">Agua Sanitaria 5L</option>
+                        <option value="Agua Sanitaria 2L" class="itens-da-lista">Agua Sanitaria 2L</option>
+                        <option value="Agua Sanitaria 1L" class="itens-da-lista">Agua Sanitaria 1L</option>
+                        
+                        
+                    </select>
+               </section>
+                <section class="section-quantidade">
+                    <h3 class="textos-subtitulos">Quantidade</h3>
+                    <input type="number" id="quantidadeLimpeza"><br>
+                    <section>
+                        <input type="button" value="+" onclick="adcLimpeza1()" class="btn btn-outline-danger">
+                        <input type="button" value="+3" onclick="addLimpeza3()" class="btn btn-outline-danger">
+                        <input type="button" value="+5" onclick="addLimpeza5()" class="btn btn-outline-danger">
+                        <input type="button" value="+10" onclick="addLimpeza10()" class="btn btn-outline-danger">
+                        <input type="button" value="-" onclick="retirarLimpeza1()" class="btn btn-outline-danger"> 
+                    </section>    
+                </section>
+                <p class="botao-adc" ><input type="button" value="Adicionar"  id="botaoAddLimpeza" class="btn btn-danger"></p>    
+            </div>
+
+            <div  id="tabelaSabonete" class="barraRolagem">
+                <section style="display: inline-table;">
+                    <label for="item"><h3 class="textos-subtitulos">Lista de itens</h3></label>
+                    <select name="item" id="listaItensSabonete" class="btn btn-danger" style="margin-left: 10px;">
+                        <option value="Erva Doce Trilha 5L">Erva Doce Trilha 5L</option>
+                        <option value="flor de laranjeira 5L">flor de laranjeira 5L</option>
+                        <option value="Açai e camomila 5L">Açai e camomila 5L</option>                 
+                    </select>               
+                </section>
+                <section class="section-quantidade">
+                    <h3 class="textos-subtitulos">Quantidade</h3>
+                    <input type="number" id="quantidadeSabonete"><br>
+                    <section>
+                        <input type="button" value="+" onclick="adcSabonete1()" class="btn btn-outline-danger">
+                        <input type="button" value="+3" onclick="addSabonete3()" class="btn btn-outline-danger">
+                        <input type="button" value="+5" onclick="addSabonete5()" class="btn btn-outline-danger">
+                        <input type="button" value="+10" onclick="addSabonete10()" class="btn btn-outline-danger">
+                        <input type="button" value="-" onclick="retirarSabonete1()" class="btn btn-outline-danger">
+                    </section>
+                </section>
+                <p class="botao-adc" ><input type="button" value="Adicionar"  id="botaoAddSabonete" class="btn btn-danger"></p>    
+            </div>
+
+            <div  id="tabelaSacoPlastico" class="barraRolagem">
+                <section style="display: inline-table;" >
+                    <label for="item"><h3 class="textos-subtitulos">Lista de itens</h3></label>
+                    <select name="item" id="listaItensSacoPlastico" class="btn btn-danger" style="margin-left: 10px;">
+                        <option value="Saco plastico 6x20">Saco plastico 6x20</option>
+                        <option value="Saco plastico 12x25x.05">Saco plastico 12x25x.05</option>
+                        <option value="Saco plastico 15x26x0.10">Saco plastico 15x26x0.10</option>    
+                    </select>   
+                </section>
+                <section class="section-quantidade">
+                    <h3 class="textos-subtitulos">Quantidade</h3>
+                    <input type="number" id="quantidadeSacoPlastico"><br>
+                    <section>
+                        <input type="button" value="+" onclick="adcSacoPlastico1()" class="btn btn-outline-danger">
+                        <input type="button" value="+3" onclick="addSacoPlastico3()" class="btn btn-outline-danger">
+                        <input type="button" value="+5" onclick="addSacoPlastico5()" class="btn btn-outline-danger">
+                        <input type="button" value="+10" onclick="addSacoPlastico10()" class="btn btn-outline-danger">
+                        <input type="button" value="-" onclick="retirarSacoPlastico1()" class="btn btn-outline-danger">
+                    </section>
+                </section>
+                <p class="botao-adc"><input type="button" value="Adicionar"  id="botaoAddSacoPlastico" class="btn btn-danger"></p>
+            </div>
+
+            <div  id="tabelaPrafesta" class="barraRolagem">
+                <section style="display: inline-table;" >
+                    <label for="item"><h3 class="textos-subtitulos">Lista de itens</h3></label>
+                    <select name="item" id="listaItensPrafesta" class="btn btn-danger" style="margin-left: 10px;">
+                        <option value="Colher Branca Master">Colher Branca Master</option>
+                        <option value="Faca Master">Faca Master</option>
+                        <option value="Garfo Branco Master">Garfo Branco Master</option>    
+                    </select>   
+                </section>
+                <section class="section-quantidade">
+                    <h3 class="textos-subtitulos">Quantidade</h3>
+                    <input type="number" id="quantidadePrafesta"><br>
+                    <section>
+                        <input type="button" value="+" onclick="adcPrafesta1()" class="btn btn-outline-danger">
+                        <input type="button" value="+3" onclick="addPrafesta3()" class="btn btn-outline-danger">
+                        <input type="button" value="+5" onclick="addPrafesta5()" class="btn btn-outline-danger">
+                        <input type="button" value="+10" onclick="addPrafesta10()" class="btn btn-outline-danger">
+                        <input type="button" value="-" onclick="retirarPrafesta1()" class="btn btn-outline-danger">
+                    </section>
+                </section>
+                <p class="botao-adc" ><input type="button" value="Adicionar"  id="botaoAddPrafesta" class="btn btn-danger"></p>
+            </div>
+
+            <div  id="tabelaPleion" class="barraRolagem">
+                <section style="display: inline-table;" >
+                    <label for="item"><h3 class="textos-subtitulos">Lista de itens</h3></label>
+                    <select name="item" id="listaItensPleion" class="btn btn-danger" style="margin-left: 10px;">
+                        <option value="Pleion 330">Pleion 330</option>
+                        <option value="Pleion 316">Pleion 316</option>
+                        <option value="Pleion 700">Pleion 700</option>    
+                    </select>   
+                </section>
+                <section class="section-quantidade">
+                    <h3 class="textos-subtitulos">Quantidade</h3>
+                    <input type="number" id="quantidadePleion"><br>
+                    <section>
+                        <input type="button" value="+" onclick="adcPleion1()" class="btn btn-outline-danger">
+                        <input type="button" value="+3" onclick="addPleion3()" class="btn btn-outline-danger">
+                        <input type="button" value="+5" onclick="addPleion5()" class="btn btn-outline-danger">
+                        <input type="button" value="+10" onclick="addPleion10()" class="btn btn-outline-danger">
+                        <input type="button" value="-" onclick="retirarPleion1()" class="btn btn-outline-danger">
+                    </section>
+                </section>
+                <p class="botao-adc" ><input type="button" value="Adicionar"  id="botaoAddPleion" class="btn btn-danger"></p>
+            </div>
+
+            <div  id="tabelaVassouras" class="barraRolagem">
+                <section style="display: inline-table;" >
+                    <label for="item"><h3 class="textos-subtitulos">Lista de itens</h3></label>
+                    <select name="item" id="listaItensVassouras" class="btn btn-danger" style="margin-left: 10px;">
+                        <option value="Vassoura Piaçava">Vassoura Piaçava</option>
+                        <option value="Vassoura Pet">Vassoura Pet</option>
+                        <option value="Vassoura Pet gari">Vassoura Pet gari</option>    
+                    </select>   
+                </section>
+                <section class="section-quantidade">
+                    <h3 class="textos-subtitulos">Quantidade</h3>
+                    <input type="number" id="quantidadeVassouras"><br>
+                    <section>
+                        <input type="button" value="+" onclick="adcVassouras1()" class="btn btn-outline-danger">
+                        <input type="button" value="+3" onclick="addVassouras3()" class="btn btn-outline-danger">
+                        <input type="button" value="+5" onclick="addVassouras5()" class="btn btn-outline-danger">
+                        <input type="button" value="+10" onclick="addVassouras10()" class="btn btn-outline-danger">
+                        <input type="button" value="-" onclick="retirarVassouras1()" class="btn btn-outline-danger">
+                    </section>
+                </section>
+                <p class="botao-adc" ><input type="button" value="Adicionar"  id="botaoAddVassouras" class="btn btn-danger"></p>
+            </div>
+
+            <div  id="tabelaCaixa" class="barraRolagem">
+                <section style="display: inline-table;" >
+                    <label for="item"><h3 class="textos-subtitulos">Lista de itens</h3></label>
+                    <select name="item" id="listaItensCaixa" class="btn btn-danger" style="margin-left: 10px;">
+                        <option value="Dupla Face 3M">Dupla Face 3M</option>
+                        <option value="Lava garrafa PQ">Lava garrafa PQ</option>
+                        <option value="Lava garrafa GR">Lava garrafa GR</option>    
+                    </select>   
+                </section>
+                <section class="section-quantidade">
+                    <h3 class="textos-subtitulos">Quantidade</h3>
+                    <input type="number" id="quantidadeCaixa"><br>
+                    <section>
+                        <input type="button" value="+" onclick="adcCaixa1()" class="btn btn-outline-danger">
+                        <input type="button" value="+3" onclick="addCaixa3()" class="btn btn-outline-danger">
+                        <input type="button" value="+5" onclick="addCaixa5()" class="btn btn-outline-danger">
+                        <input type="button" value="+10" onclick="addCaixa10()" class="btn btn-outline-danger">
+                        <input type="button" value="-" onclick="retirarCaixa1()" class="btn btn-outline-danger">
+                    </section>
+                </section>
+                <p class="botao-adc" ><input type="button" value="Adicionar"  id="botaoAddCaixa" class="btn btn-danger"></p>
+            </div>
+
+            <div  id="tabelaPotesPlasticos" class="barraRolagem">
+                <section style="display: inline-table;" >
+                    <label for="item"><h3 class="textos-subtitulos">Lista de itens</h3></label>
+                    <select name="item" id="listaItensPotesPlasticos" class="btn btn-danger" style="margin-left: 10px;">
+                        <option value="Pote 700/001">Pote 700/001</option>
+                        <option value="Pote 180/002">Pote 180/002</option>
+                        <option value="Pote 500/012">Pote 500/012</option>    
+                    </select>   
+                </section>
+                <section class="section-quantidade">
+                    <h3 class="textos-subtitulos">Quantidade</h3>
+                    <input type="number" id="quantidadePotesPlasticos"><br>
+                    <section>
+                        <input type="button" value="+" onclick="adcPotesPlasticos1()" class="btn btn-outline-danger">
+                        <input type="button" value="+3" onclick="addPotesPlasticos3()" class="btn btn-outline-danger">
+                        <input type="button" value="+5" onclick="addPotesPlasticos5()" class="btn btn-outline-danger">
+                        <input type="button" value="+10" onclick="addPotesPlasticos10()" class="btn btn-outline-danger">
+                        <input type="button" value="-" onclick="retirarPotesPlasticos1()" class="btn btn-outline-danger">
+                    </section>
+                </section>
+                <p class="botao-adc" ><input type="button" value="Adicionar"  id="botaoAddPotesPlasticos" class="btn btn-danger"></p>
+            </div>
+
+            <div  id="tabelaGalvanotek" class="barraRolagem">
+                <section style="display: inline-table;" >
+                    <label for="item"><h3 class="textos-subtitulos">Lista de itens</h3></label>
+                    <select name="item" id="listaItensGalvanotek" class="btn btn-danger" style="margin-left: 10px;">
+                        <option value="G301">G301</option>
+                        <option value="G330">G330</option>
+                        <option value="G306">G306</option>    
+                    </select>   
+                </section>
+                <section class="section-quantidade">
+                    <h3 class="textos-subtitulos">Quantidade</h3>
+                    <input type="number" id="quantidadeGalvanotek"><br>
+                    <section>
+                        <input type="button" value="+" onclick="adcGalvanotek1()" class="btn btn-outline-danger">
+                        <input type="button" value="+3" onclick="addGalvanotek3()" class="btn btn-outline-danger">
+                        <input type="button" value="+5" onclick="addGalvanotek5()" class="btn btn-outline-danger">
+                        <input type="button" value="+10" onclick="addGalvanotek10()" class="btn btn-outline-danger">
+                        <input type="button" value="-" onclick="retirarGalvanotek1()" class="btn btn-outline-danger">
+                    </section>
+                </section>
+                <p class="botao-adc" ><input type="button" value="Adicionar"  id="botaoAddGalvanotek" class="btn btn-danger"></p>
+            </div> 
+    </div>
+
+    <div id="listaPreDefinida" class="card" >
+        <h2 style="position: relative;" id="titulo-lista-pre" class="card"> <span><img src="img/seta-baixo.png" alt="">Veja aqui os itens!</h2>
+        <section id="secaoListaPreDefinida">
+
+        </section>
+        <div><input type="button" id="botaoCriarLista" onclick="alterarConteudo()" data-toggle="modal" data-target="#modalListaFeita" value="Criar lista" class="btn btn-success"></input> <input type="submit" value="Limpar lista" class=" btn btn-danger" id="removerLista" onclick="limparLista()"></div>  
+    </div>
+
+    <!--Modal para a lista de itens depois de pronta-->
+    <div id="modalListaFeita" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="tituloModal">LISTA PRONTA <span> <img src="img/icone/lista-pronta.jpg" alt=""></span></h2>
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                </div>
+                <div id="listaPronta" class="modal-body" >
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class=" btn btn-danger" data-dismiss="modal">X</button>
+                </div>
+
+            </div>
         </div>
     </div>
 
- </body>
-</html>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
+</html> 

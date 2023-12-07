@@ -1,69 +1,113 @@
-* {
+* { 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    height: 100%;
-    background: linear-gradient(to right, #33ccff 0%, #ff99cc 100% );
-    font-family: Poppins-Regular,sans-serif
-}
-
-.conteudo {
-    width: 100%;
-    min-height: 100vh;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    align-items: center;
-    padding: 15px;
-    background: #a64bf4;
-    background: -webkit-linear-gradient(45deg,#00dbde,#fc00ff);
-    background: -o-linear-gradient(45deg,#00dbde,#fc00ff);
-    background: -moz-linear-gradient(45deg,#00dbde,#fc00ff);
-    background: linear-gradient(45deg,#00dbde,#fc00ff)
-}
-
-
-.conteudo2 {
-    width: 500px;
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 42px 55px 45px;
-    margin-right: 335px;
-    
-}
-
-.titulo {
-    display: block;
-    font-family: Poppins-Bold;
-    font-size: 39px;
-    color: #333;
-    line-height: 1.2;
+p {
+    font-size: 18px;
     text-align: center;
-    padding-bottom: 44px
 }
 
-.conteudo-lista{
+#setores {
+   display: inline-table;
+   width: 15%;
+   justify-content: center;
+   background-color: white;
+   width: 25%;
+   height: 500px;
+   text-align:center;
+}
 
-    width: 500px;
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    padding: 42px 55px 45px;
+#titulo-setores {
+    color: black;
+}
+
+#itensSetor {
+    display: inline-table;
+    width: 50%;
+    position:fixed;
+    background-color: rgb(51, 50, 50); 
+}
+
+#tituloItensSetor {
+    text-align: center;
+    margin-bottom: 90px;
+    background-color: red;
+    border-radius: 50px;
+}
+
+
+.barraRolagem {
+  width: 70%;
+  height: 600px;
+  margin-left:20%;
+  text-align: center;  
+}
+
+#listaPreDefinida {
+    display: flex;
+    float: right;
+    width: 25%;
+    text-align: center;
+    max-height: 500px ;
+    overflow-x: auto;
+}
+
+#listaPreDefinida img {
+    max-width: 40px;
+    float: right;
+}
+
+#titulo-lista-pre{
+    color: black;
+    font-size:30px; 
+}
+
+#titulo{
+    text-align: center;
+    color: red;
+    background-color: black;
+    padding: 5px;
+}
+
+#titulo img {
+    max-width: 80px;
+}
+
+.botao-adc {
+    float: right; 
+    margin-top: 80px; 
+    margin-right: 50px;
+}
+
+.itens-da-lista {
+    background-color: red;
+    border-radius: 20px;
+}
+
+.itens-da-lista:hover {
+    background-color: black;
+    color: white;
+    transition: 0.02s;
+} 
+
+.textos-subtitulos{
+    color: white;
+}
+
+.section-quantidade {
+    display: inline-table;
+    margin-top: 10%; 
+    margin-right: 50px;
+}
+
+#tituloModal {
+    color: red;
+    font-size: 50px;
+}
+
+#tituloModal img{
+    max-width: 80px;
     
 }
-
-
-
-
-
-
-
-
